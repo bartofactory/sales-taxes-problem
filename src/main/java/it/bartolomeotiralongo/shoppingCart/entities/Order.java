@@ -1,6 +1,6 @@
 package it.bartolomeotiralongo.shoppingCart.entities;
 
-import exceptions.ZeroQuantityException;
+import it.bartolomeotiralogno.shoppingCart.exceptions.ZeroQuantityException;
 
 /**
  * Order of the user
@@ -8,7 +8,7 @@ import exceptions.ZeroQuantityException;
  * @author BartolomeoTiralongo
  *
  */
-public class Order {
+public class Order{
 
 	private Item item;
 	private int quantity;
@@ -38,7 +38,7 @@ public class Order {
 	}
 	
 	public void removeItem() throws ZeroQuantityException {
-		if(--this.quantity <= 0)
+		if(this.quantity - 1 <= 0)
 			throw new ZeroQuantityException();
 		
 		this.quantity -= 1;

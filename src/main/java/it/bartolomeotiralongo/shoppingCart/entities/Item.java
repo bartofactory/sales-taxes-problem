@@ -3,6 +3,7 @@ package it.bartolomeotiralongo.shoppingCart.entities;
 import java.math.BigDecimal;
 
 import it.bartolomeotiralongo.shoppingCart.enums.ItemType;
+import it.bartolomeotiralongo.shoppingCart.logic.TaxStrategy;
 
 /***
  * Single item present in the store
@@ -84,6 +85,15 @@ public class Item {
 
 	public void setTaxes(BigDecimal taxes) {
 		this.taxes = taxes;
+	}
+	
+	public BigDecimal getPriceAfterTaxes() {
+		return netPrice.add(taxes);
+	}
+	
+	public void applyTaxes() {
+		TaxStrategy taxStrategy = new TaxStrategy(this);
+		this.taxes = this.taxes.add(taxStrategy.calculateTaxes());
 	}
 	
 }

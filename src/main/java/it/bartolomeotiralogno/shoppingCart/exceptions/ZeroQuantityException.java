@@ -1,4 +1,4 @@
-package exceptions;
+package it.bartolomeotiralogno.shoppingCart.exceptions;
 
 public class ZeroQuantityException extends Exception {
 	
