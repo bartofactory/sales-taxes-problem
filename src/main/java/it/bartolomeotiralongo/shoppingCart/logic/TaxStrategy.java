@@ -1,6 +1,7 @@
 package it.bartolomeotiralongo.shoppingCart.logic;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import it.bartolomeotiralongo.shoppingCart.entities.Item;
 import it.bartolomeotiralongo.shoppingCart.interfaces.TaxService;
@@ -21,10 +22,8 @@ public class TaxStrategy implements TaxService{
 
 	public BigDecimal calculateTaxes() {
 		
-		taxes.add(calculateImportTaxes(this.item));
-		taxes.add(calculateBasicTaxes(this.item));
-		
-		return taxes;
+		this.taxes = this.taxes.add(calculateImportTaxes(this.item)).add(calculateBasicTaxes(this.item));
+		return this.taxes;
 	}
 	
 	@Override
@@ -33,10 +32,10 @@ public class TaxStrategy implements TaxService{
 		BigDecimal importTax = BigDecimal.ZERO;
 				
 		if(item.getIsImported()) {
-			importTax = IMPORT_TAX_RATE.multiply(item.getNetPrice());
+			importTax = importTax.add(IMPORT_TAX_RATE.multiply(item.getNetPrice()));
 		}
-		
-		return importTax.setScale(2, BigDecimal.ROUND_HALF_UP);	
+
+		return roundToNearestFiveCent(importTax);	
 	}
 
 	@Override
@@ -46,10 +45,14 @@ public class TaxStrategy implements TaxService{
 		TaxExemption exemptions = new TaxExemption();
 		
 		if(!exemptions.getBasicSalesExemption().contains(item.getType())) {
-			basicTax = BASIC_TAX_RATE.multiply(item.getNetPrice());
+			basicTax = basicTax.add(BASIC_TAX_RATE.multiply(item.getNetPrice()));
 		}
-		
-		return basicTax.setScale(2, BigDecimal.ROUND_HALF_UP);
+
+		return roundToNearestFiveCent(basicTax);
+	}
+	
+	private BigDecimal roundToNearestFiveCent(BigDecimal tax) {
+		return tax.divide(BigDecimal.valueOf(0.05), 0, RoundingMode.UP).multiply(BigDecimal.valueOf(0.05)).setScale(2);
 	}
 
 }

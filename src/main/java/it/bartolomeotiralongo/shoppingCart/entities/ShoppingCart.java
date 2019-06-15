@@ -1,9 +1,8 @@
-package it.bartolomeotiralongo.shoppingCart;
+package it.bartolomeotiralongo.shoppingCart.entities;
 
 import java.util.HashSet;
 
 import it.bartolomeotiralogno.shoppingCart.exceptions.ZeroQuantityException;
-import it.bartolomeotiralongo.shoppingCart.entities.Order;
 
 public class ShoppingCart {
 	
@@ -50,13 +49,14 @@ public class ShoppingCart {
 					}
 				}
 			}
-			
 		}
 
 		return status;
 		
 	}
 	
-	
+	public HashSet<Order> getAllOrders(){
+		return this.shoppingCart;
+	}
 	
 }
