@@ -44,6 +44,11 @@ public class Order{
 		this.quantity -= 1;
 	}
 
+	public Order applyTaxes() {
+		this.item.applyTaxes();
+		return this;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

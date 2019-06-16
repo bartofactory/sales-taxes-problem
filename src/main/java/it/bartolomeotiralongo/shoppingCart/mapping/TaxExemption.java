@@ -1,23 +1,25 @@
 package it.bartolomeotiralongo.shoppingCart.mapping;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import java.util.HashSet;
 import it.bartolomeotiralongo.shoppingCart.enums.ItemType;
 
 public class TaxExemption {
 
-	public List<ItemType> basicSalesExemption;
+	public HashSet<ItemType> basicSalesExemption;
 	
 	public TaxExemption() {
-		basicSalesExemption = new ArrayList<>();
+		basicSalesExemption = new HashSet<>();
 		basicSalesExemption.add(ItemType.BOOK);
 		basicSalesExemption.add(ItemType.FOOD);
 		basicSalesExemption.add(ItemType.MEDICAL);
 	}
 	
-	public List<ItemType> getBasicSalesExemption() {
+	public HashSet<ItemType> getBasicSalesExemption() {
 		return basicSalesExemption;
+	}
+	
+	public boolean isItemExempt(ItemType type) {
+		return basicSalesExemption.contains(type);
 	}
 	
 }

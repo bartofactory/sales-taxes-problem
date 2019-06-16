@@ -9,8 +9,8 @@ import it.bartolomeotiralongo.shoppingCart.mapping.TaxExemption;
 
 public class TaxStrategy implements TaxService{
 	
-	public static BigDecimal BASIC_TAX_RATE = new BigDecimal(0.10);
-	public static BigDecimal IMPORT_TAX_RATE = new BigDecimal(0.05);
+	public static BigDecimal BASIC_TAX_RATE = BigDecimal.valueOf(0.10);
+	public static BigDecimal IMPORT_TAX_RATE = BigDecimal.valueOf(0.05);
 
 	private Item item;
 	private BigDecimal taxes;
@@ -35,7 +35,7 @@ public class TaxStrategy implements TaxService{
 			importTax = importTax.add(IMPORT_TAX_RATE.multiply(item.getNetPrice()));
 		}
 
-		return roundToNearestFiveCent(importTax);	
+		return roundToFiveCent(importTax);	
 	}
 
 	@Override
@@ -44,14 +44,14 @@ public class TaxStrategy implements TaxService{
 		
 		TaxExemption exemptions = new TaxExemption();
 		
-		if(!exemptions.getBasicSalesExemption().contains(item.getType())) {
+		if(!exemptions.isItemExempt(item.getType())) {
 			basicTax = basicTax.add(BASIC_TAX_RATE.multiply(item.getNetPrice()));
 		}
 
-		return roundToNearestFiveCent(basicTax);
+		return roundToFiveCent(basicTax);
 	}
 	
-	private BigDecimal roundToNearestFiveCent(BigDecimal tax) {
+	private BigDecimal roundToFiveCent(BigDecimal tax) {
 		return tax.divide(BigDecimal.valueOf(0.05), 0, RoundingMode.UP).multiply(BigDecimal.valueOf(0.05)).setScale(2);
 	}
 

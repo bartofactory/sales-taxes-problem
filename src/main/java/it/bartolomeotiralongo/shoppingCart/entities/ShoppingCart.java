@@ -1,15 +1,16 @@
 package it.bartolomeotiralongo.shoppingCart.entities;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 import it.bartolomeotiralogno.shoppingCart.exceptions.ZeroQuantityException;
 
 public class ShoppingCart {
 	
-	private HashSet<Order> shoppingCart;
+	private LinkedHashSet<Order> shoppingCart;
 	
 	public ShoppingCart() {
-		this.shoppingCart = new HashSet<>();
+		this.shoppingCart = new LinkedHashSet<>();
 	}
 	
 	public void addOrder(Order order) {
