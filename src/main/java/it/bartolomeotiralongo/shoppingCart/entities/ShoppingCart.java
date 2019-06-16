@@ -3,7 +3,7 @@ package it.bartolomeotiralongo.shoppingCart.entities;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 
-import it.bartolomeotiralogno.shoppingCart.exceptions.ZeroQuantityException;
+import it.bartolomeotiralongo.shoppingCart.exceptions.ZeroQuantityException;
 import it.bartolomeotiralongo.shoppingCart.logic.CheckoutStrategy;
 
 public class ShoppingCart {

@@ -1,6 +1,6 @@
 package it.bartolomeotiralongo.shoppingCart.entities;
 
-import it.bartolomeotiralogno.shoppingCart.exceptions.ZeroQuantityException;
+import it.bartolomeotiralongo.shoppingCart.exceptions.ZeroQuantityException;
 import it.bartolomeotiralongo.shoppingCart.logic.TaxStrategy;
 
 /**

@@ -1,1 +1,16 @@
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/logic/TaxStrategy.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralogno/shoppingCart/exceptions/NoShoppingCartFoundException.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/logic/CheckoutStrategy.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/mapping/Inventory.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/entities/ShoppingCart.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/interfaces/CheckoutService.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/interfaces/TaxService.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralogno/shoppingCart/exceptions/NoItemFoundException.java
 /Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/App.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/logic/ReceiptPrinter.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/entities/Order.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/entities/Item.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralogno/shoppingCart/exceptions/ZeroQuantityException.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/logic/OrderStringParser.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/mapping/TaxExemption.java
+/Users/bartolomeotiralongo/Documents/Progetti/Coding/Interview/lastminute/shoppingCart/shoppingCart/src/main/java/it/bartolomeotiralongo/shoppingCart/enums/ItemType.java
