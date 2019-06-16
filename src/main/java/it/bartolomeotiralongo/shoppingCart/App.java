@@ -4,6 +4,7 @@ import it.bartolomeotiralongo.shoppingCart.entities.Order;
 import it.bartolomeotiralongo.shoppingCart.entities.ShoppingCart;
 import it.bartolomeotiralongo.shoppingCart.logic.CheckoutStrategy;
 import it.bartolomeotiralongo.shoppingCart.logic.OrderStringParser;
+import it.bartolomeotiralongo.shoppingCart.logic.TaxStrategy;
 
 /**
  * Hello world!
@@ -30,19 +31,18 @@ public class App
     	String orders = "2 book at 12.49\n" + 
     			"    		1 music CD at 14.99\n" + 
     			"    		1 chocolate bar at 0.85";
-    	ShoppingCart shoppingCart = new ShoppingCart();
+    	ShoppingCart shoppingCart = new ShoppingCart(new CheckoutStrategy());
     	
     	for(String line : orders.split("\n")) {
     		OrderStringParser parser = new OrderStringParser(line);
     		Order o = parser.parse();
-    		o.applyTaxes();
+    		o.applyTaxes(new TaxStrategy());
     		shoppingCart.addOrder(o);
     	}
     	
-    	CheckoutStrategy checkout = new CheckoutStrategy(shoppingCart);
-    	checkout.calculateTotal();
-    	System.out.println(checkout.printReceipt());
-    	
+    	shoppingCart.calculateTotal();
+    	System.out.println(shoppingCart.printReceipt());
+
     	System.out.println("");
     	System.out.println(" ======================== ");
     	System.out.println("");
@@ -61,18 +61,17 @@ public class App
     	
     	orders = "1 imported box of chocolates at 10.00\n" + 
     			"			1 imported bottle of perfume at 47.50";
-    	shoppingCart = new ShoppingCart();
+    	shoppingCart = new ShoppingCart(new CheckoutStrategy());
     	
     	for(String line : orders.split("\n")) {
     		OrderStringParser parser = new OrderStringParser(line);
     		Order o = parser.parse();
-    		o.applyTaxes();
+    		o.applyTaxes(new TaxStrategy());
     		shoppingCart.addOrder(o);
     	}
     	
-    	checkout = new CheckoutStrategy(shoppingCart);
-    	checkout.calculateTotal();
-    	System.out.println(checkout.printReceipt());
+    	shoppingCart.calculateTotal();
+    	System.out.println(shoppingCart.printReceipt());
     	
     	System.out.println("");
     	System.out.println(" ======================== ");
@@ -98,18 +97,17 @@ public class App
     			"    		1 bottle of perfume at 18.99\n" + 
     			"    		1 packet of headache pills at 9.75\n" + 
     			"    		3 box of imported chocolates at 11.25";
-    	shoppingCart = new ShoppingCart();
+    	shoppingCart = new ShoppingCart(new CheckoutStrategy());
     	
     	for(String line : orders.split("\n")) {
     		OrderStringParser parser = new OrderStringParser(line);
     		Order o = parser.parse();
-    		o.applyTaxes();
+    		o.applyTaxes(new TaxStrategy());
     		shoppingCart.addOrder(o);
     	}
     	
-    	checkout = new CheckoutStrategy(shoppingCart);
-    	checkout.calculateTotal();
-    	System.out.println(checkout.printReceipt());
+    	shoppingCart.calculateTotal();
+    	System.out.println(shoppingCart.printReceipt());
     	
     }
 }

@@ -31,5 +31,9 @@ public class Inventory {
 	public ItemType getItemType(String itemName) {
 		return categoryMapping.get(itemName);
 	}
+	
+	public boolean isItemInInventory(String itemName) {
+		return categoryMapping.containsKey(itemName);
+	}
 
 }

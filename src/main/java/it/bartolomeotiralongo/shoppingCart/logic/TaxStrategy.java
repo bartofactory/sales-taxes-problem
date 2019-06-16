@@ -12,17 +12,15 @@ public class TaxStrategy implements TaxService{
 	public static BigDecimal BASIC_TAX_RATE = BigDecimal.valueOf(0.10);
 	public static BigDecimal IMPORT_TAX_RATE = BigDecimal.valueOf(0.05);
 
-	private Item item;
 	private BigDecimal taxes;
 	
-	public TaxStrategy(Item item) {
-		this.item = item;
+	public TaxStrategy() {
 		this.taxes = BigDecimal.ZERO;
 	}
 
-	public BigDecimal calculateTaxes() {
+	public BigDecimal calculateTaxes(Item item) {
 		
-		this.taxes = this.taxes.add(calculateImportTaxes(this.item)).add(calculateBasicTaxes(this.item));
+		this.taxes = this.taxes.add(calculateImportTaxes(item)).add(calculateBasicTaxes(item));
 		return this.taxes;
 	}
 	

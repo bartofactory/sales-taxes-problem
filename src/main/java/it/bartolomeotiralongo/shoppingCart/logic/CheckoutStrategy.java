@@ -9,19 +9,17 @@ import it.bartolomeotiralongo.shoppingCart.interfaces.CheckoutService;
 
 public class CheckoutStrategy implements CheckoutService{
 	
-	private ShoppingCart shoppingCart;
 	private BigDecimal taxes;
 	private BigDecimal total;
-	
-	public CheckoutStrategy(ShoppingCart shoppingCart) {
-		this.shoppingCart = shoppingCart;
+		
+	public CheckoutStrategy() {
 		this.taxes = BigDecimal.ZERO;
 		this.total = BigDecimal.ZERO;
 	}
 
 	@Override
-	public void calculateTotal() {
-		for(Order order : this.shoppingCart.getAllOrders()) {
+	public void calculateTotal(ShoppingCart shoppingCart) {		
+		for(Order order : shoppingCart.getAllOrders()) {
 			Item item = order.getItem();
 			BigDecimal costQuantityItem = item.getPriceAfterTaxes().multiply(BigDecimal.valueOf(order.getQuantity()));
 			BigDecimal taxesQuantityItem = item.getTaxes().multiply(BigDecimal.valueOf(order.getQuantity()));
@@ -31,18 +29,9 @@ public class CheckoutStrategy implements CheckoutService{
 	}
 
 	@Override
-	public String printReceipt() {
-		ReceiptPrinter printer = new ReceiptPrinter(this);
+	public String printReceipt(ShoppingCart shoppingCart){
+		ReceiptPrinter printer = new ReceiptPrinter(this, shoppingCart);
 		return printer.print();
-	}
-
-	
-	public ShoppingCart getShoppingCart() {
-		return shoppingCart;
-	}
-
-	public void setShoppingCart(ShoppingCart shoppingCart) {
-		this.shoppingCart = shoppingCart;
 	}
 
 	public BigDecimal getTaxes() {

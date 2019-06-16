@@ -1,6 +1,7 @@
 package it.bartolomeotiralongo.shoppingCart.entities;
 
 import it.bartolomeotiralogno.shoppingCart.exceptions.ZeroQuantityException;
+import it.bartolomeotiralongo.shoppingCart.logic.TaxStrategy;
 
 /**
  * Order of the user
@@ -44,8 +45,8 @@ public class Order{
 		this.quantity -= 1;
 	}
 
-	public Order applyTaxes() {
-		this.item.applyTaxes();
+	public Order applyTaxes(TaxStrategy taxStrategy) {
+		this.item.applyTaxes(taxStrategy);
 		return this;
 	}
 	

@@ -4,13 +4,16 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 
 import it.bartolomeotiralogno.shoppingCart.exceptions.ZeroQuantityException;
+import it.bartolomeotiralongo.shoppingCart.logic.CheckoutStrategy;
 
 public class ShoppingCart {
 	
 	private LinkedHashSet<Order> shoppingCart;
+	private CheckoutStrategy checkoutStrategy;
 	
-	public ShoppingCart() {
+	public ShoppingCart(CheckoutStrategy checkoutStrategy) {
 		this.shoppingCart = new LinkedHashSet<>();
+		this.checkoutStrategy = checkoutStrategy;
 	}
 	
 	public void addOrder(Order order) {
@@ -58,6 +61,14 @@ public class ShoppingCart {
 	
 	public HashSet<Order> getAllOrders(){
 		return this.shoppingCart;
+	}
+	
+	public void calculateTotal(){
+    	checkoutStrategy.calculateTotal(this);
+	}
+	
+	public String printReceipt(){
+    	return checkoutStrategy.printReceipt(this);
 	}
 	
 }
