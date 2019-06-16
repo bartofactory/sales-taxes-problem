@@ -28,6 +28,8 @@ public class App
 			Total: 42.32
 		*/
     	
+
+    	
     	String orders = "2 book at 12.49\n" + 
     			"    		1 music CD at 14.99\n" + 
     			"    		1 chocolate bar at 0.85";

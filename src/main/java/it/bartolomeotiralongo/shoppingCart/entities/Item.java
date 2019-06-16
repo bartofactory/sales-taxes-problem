@@ -91,7 +91,7 @@ public class Item {
 		return netPrice.add(taxes);
 	}
 	
-	public Item applyTaxes(TaxStrategy taxStrategy) {
+	public Item applyItemTaxes(TaxStrategy taxStrategy) {
 		BigDecimal taxes = taxStrategy.calculateTaxes(this);
 		this.taxes = this.taxes.add(taxes);
 		return this;

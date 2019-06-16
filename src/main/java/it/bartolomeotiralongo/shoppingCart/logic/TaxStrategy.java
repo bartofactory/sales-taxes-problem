@@ -19,7 +19,7 @@ public class TaxStrategy implements TaxService{
 	}
 
 	public BigDecimal calculateTaxes(Item item) {
-		
+		this.taxes = BigDecimal.ZERO;
 		this.taxes = this.taxes.add(calculateImportTaxes(item)).add(calculateBasicTaxes(item));
 		return this.taxes;
 	}

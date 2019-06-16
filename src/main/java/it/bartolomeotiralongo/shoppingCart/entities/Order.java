@@ -46,16 +46,15 @@ public class Order{
 	}
 
 	public Order applyTaxes(TaxStrategy taxStrategy) {
-		this.item.applyTaxes(taxStrategy);
+		this.item.applyItemTaxes(taxStrategy);
 		return this;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((item == null) ? 0 : item.hashCode());
-		result = prime * result + quantity;
 		return result;
 	}
 
@@ -72,8 +71,6 @@ public class Order{
 			if (other.item != null)
 				return false;
 		} else if (!item.equals(other.item))
-			return false;
-		if (quantity != other.quantity)
 			return false;
 		return true;
 	}

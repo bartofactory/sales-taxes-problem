@@ -16,12 +16,17 @@ public class OrderStringParser {
 	private Order order;
 	private Item item;
 	
+	public OrderStringParser() {
+		super();
+		this.input = "";
+	}
+	
 	public OrderStringParser(String input) {
 		super();
 		this.input = input;
 	}
 	
-	public Order parse() throws IllegalArgumentException, IllegalStateException, IndexOutOfBoundsException, NumberFormatException, NullPointerException{
+	public Order parse() throws IllegalArgumentException, NumberFormatException, NullPointerException{
 		
 		final Pattern pattern = Pattern.compile(INPUT_PATTERN, Pattern.MULTILINE);
 		final Matcher matcher = pattern.matcher(this.input);
@@ -40,7 +45,6 @@ public class OrderStringParser {
 			
 			this.item = new Item(name, p, inventory.getItemType(name), isImported);
 			this.order = new Order(this.item, q);
-			
 			
 		}
 		
@@ -77,13 +81,5 @@ public class OrderStringParser {
 	public void setOrder(Order order) {
 		this.order = order;
 	}
-	
-	public Item getItem() {
-		return item;
-	}
-	
-	public void setItem(Item item) {
-		this.item = item;
-	}
-		
+			
 }

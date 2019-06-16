@@ -37,9 +37,7 @@ public class ShoppingCart {
 	}
 	
 	public boolean removeOrder(Order order) {
-		
-		boolean status = false;
-		
+			
 		// Check if an element is already present in shopping cart
 		if(this.shoppingCart.contains(order)) {
 			
@@ -49,13 +47,13 @@ public class ShoppingCart {
 					try {
 						orderInCart.removeItem();
 					}catch (ZeroQuantityException e) {
-						status = this.shoppingCart.remove(orderInCart);
+						return this.shoppingCart.remove(orderInCart);
 					}
 				}
 			}
 		}
 
-		return status;
+		return false;
 		
 	}
 	
